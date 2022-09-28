@@ -73,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 9/14
 第一個字大寫的都是 component
+
+git config --global user.email "a88019401@yahoo.com.tw"
+git config --global user.name "a88019401"
