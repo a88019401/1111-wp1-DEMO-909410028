@@ -1,28 +1,12 @@
-import { useState } from 'react';
-import './App_28.css';
-import Menu_28 from './components/Menu_28';
-import Category_28 from './components/Category_28';
-import items from './data';
-
-const allCategories = ['all', 'breakfast', 'lunch', 'shakes', 'dinner'];
+import React from 'react';
+import T11_28 from './tutorial/1-useState/T11_28-error-example';
 
 const App_28 = () => {
-  const [menuItems, setMenuItems] = useState(items);
-  console.log('menuItems', menuItems);
-  const [categories, setCategories] = useState(allCategories);
-  console.log('categories', categories);
   return (
-    <section className='menu'>
-      {/*<!-- title -->*/}
-      <div className='title'>
-        <h2>our menu</h2>
-        <div className='underline'></div>
-      </div>
-      {/*<!-- filter buttons -->*/}
-      <Category_28 categories={categories} />
-      {/*<!-- menu items -->*/}
-      <Menu_28 items={menuItems} />
-    </section>
+    <div className='container'>
+      <h2>Tutorial 11 - 909410028</h2>
+      <T11_28 />
+    </div>
   );
 };
 

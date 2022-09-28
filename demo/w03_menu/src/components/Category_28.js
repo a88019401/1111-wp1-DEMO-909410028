@@ -3,7 +3,7 @@ import React from 'react';
 const Category_28 = ({ categories }) => {
   return (
     <div className='btn-container'>
-      {categories.map((allCategories, index) => {
+      {categories.map((categories, index) => {
         return (
           <button
             key={index}
@@ -11,7 +11,7 @@ const Category_28 = ({ categories }) => {
             className='filter-btn'
             data-id='all'
           >
-            {allCategories}
+            {categories}
           </button>
         );
       })}
