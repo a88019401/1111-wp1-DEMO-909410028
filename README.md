@@ -76,5 +76,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 git config --global user.email "a88019401@yahoo.com.tw"
 git config --global user.name "a88019401"
-
-git log --pretty=format:"%h%x09%an%x09%ad%x09%s" --after="2022-09-06"
