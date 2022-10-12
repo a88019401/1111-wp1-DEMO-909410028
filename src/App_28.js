@@ -41,6 +41,15 @@ const App_28 = () => {
       setName('');
     }
   };
+  //filter是篩選的意思
+  const removeItem = (id) => {
+    showAlert(true, 'item removed', 'danger');
+    setList(list.filter((item) => item.id !== id));
+  };
+  const clearList = () => {
+    showAlert(true, 'empty list', 'danger');
+    setList([]);
+  };
   //{...某物件}  意思是把整包的值抓近來
   return (
     <>
@@ -65,8 +74,10 @@ const App_28 = () => {
         </form>
         {list.length > 0 && (
           <div className='grocery-container'>
-            <List_28 items={list} />
-            <button className='clear-btn'>Clear Items</button>
+            <List_28 items={list} removeItem={removeItem} />
+            <button className='clear-btn' onClick={clearList}>
+              Clear Items
+            </button>
           </div>
         )}
       </section>
