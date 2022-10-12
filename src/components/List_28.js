@@ -9,12 +9,14 @@ const List_28 = ({ items }) => {
         return (
           <article className='grocery-item' key={id}>
             <p className='title'>{title}</p>
-            <button className='edit-btn'>
-              <FaEdit></FaEdit>
-            </button>
-            <button className='delete-btn'>
-              <FaTrash></FaTrash>
-            </button>
+            <div>
+              <button className='edit-btn'>
+                <FaEdit></FaEdit>
+              </button>
+              <button className='delete-btn'>
+                <FaTrash></FaTrash>
+              </button>
+            </div>
           </article>
         );
       })}
