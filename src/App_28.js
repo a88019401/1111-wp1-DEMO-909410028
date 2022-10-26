@@ -11,30 +11,39 @@ const App_28 = () => {
     setBlogs(blogs.filter((blog) => blog.id !== id));
   };
 
+  const allRemoveItem = (id) => {
+    setBlogs([]);
+  };
+
   return (
-    <section className='blogs'>
-      <div class='section-title'>
-        <h2>CSS Grid using breakpoints</h2>
-      </div>
-      <div class='filter-container'>
-        <button type='button' class='filter-btn' data-id='all'>
-          all
+    <>
+      <section className='blogs'>
+        <div class='section-title'>
+          <h2>CSS Grid using breakpoints</h2>
+        </div>
+        <div class='filter-container'>
+          <button type='button' class='filter-btn' data-id='all'>
+            all
+          </button>
+          <button type='button' class='filter-btn' data-id='lifestyle'>
+            lifestyle
+          </button>
+          <button type='button' class='filter-btn' data-id='travel'>
+            travel
+          </button>
+        </div>
+        <div className='blogs-center'>
+          <BlogList_28
+            key={1}
+            blogs={blogs}
+            removeItem={removeItem}
+          ></BlogList_28>
+        </div>
+        <button className='clear-btn' onClick={allRemoveItem}>
+          clear all blogs
         </button>
-        <button type='button' class='filter-btn' data-id='lifestyle'>
-          lifestyle
-        </button>
-        <button type='button' class='filter-btn' data-id='travel'>
-          travel
-        </button>
-      </div>
-      <div className='blogs-center'>
-        <BlogList_28
-          key={1}
-          blogs={blogs}
-          removeItem={removeItem}
-        ></BlogList_28>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 export default App_28;
