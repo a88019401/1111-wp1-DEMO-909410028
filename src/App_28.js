@@ -15,6 +15,15 @@ const App_28 = () => {
     setBlogs([]);
   };
 
+  const filterItems = (category) => {
+    if (category === 'all') {
+      setBlogs(items);
+    } else {
+      const newBlogs = items.filter((blog) => blog.category === category);
+      setBlogs(newBlogs);
+    }
+  };
+
   return (
     <>
       <section className='blogs'>
@@ -22,13 +31,25 @@ const App_28 = () => {
           <h2>CSS Grid using breakpoints</h2>
         </div>
         <div class='filter-container'>
-          <button type='button' class='filter-btn' data-id='all'>
+          <button
+            type='button'
+            class='filter-btn'
+            onClick={() => filterItems('all')}
+          >
             all
           </button>
-          <button type='button' class='filter-btn' data-id='lifestyle'>
+          <button
+            type='button'
+            class='filter-btn'
+            onClick={() => filterItems('lifestyle')}
+          >
             lifestyle
           </button>
-          <button type='button' class='filter-btn' data-id='travel'>
+          <button
+            type='button'
+            class='filter-btn'
+            onClick={() => filterItems('travel')}
+          >
             travel
           </button>
         </div>
