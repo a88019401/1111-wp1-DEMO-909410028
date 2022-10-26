@@ -1,87 +1,127 @@
 import React, { useState, useEffect } from 'react';
-import List_28 from './components/List_28';
-import Alert_28 from './components/Alert_28';
-
-const getLocalStorage = () => {
-  let list = localStorage.getItem('list');
-  if (list) {
-    return JSON.parse(localStorage.getItem('list'));
-  } else {
-    return [];
-  }
-};
+import './App_28.css';
 
 const App_28 = () => {
-  const [name, setName] = useState('');
-  const [list, setList] = useState(getLocalStorage());
-  const [alert, setAlert] = useState({
-    show: false,
-    msg: '',
-    type: '',
-  });
-
-  useEffect(() => {
-    localStorage.setItem('list', JSON.stringify(list));
-  }, [list]);
-
-  const showAlert = (show = false, msg = '', type = '') => {
-    setAlert({ show, msg, type });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault(); //預先取消掉 action 的動作
-    if (!name) {
-      showAlert(true, 'Please enter value', 'danger');
-    } else {
-      showAlert(true, 'value changed', 'success');
-      const newItem = {
-        id: new Date().getTime().toString(),
-        title: name,
-      };
-      setList([...list, newItem]);
-      setName('');
-    }
-  };
-  //filter是篩選的意思
-  const removeItem = (id) => {
-    showAlert(true, 'item removed', 'danger');
-    setList(list.filter((item) => item.id !== id));
-  };
-  const clearList = () => {
-    showAlert(true, 'empty list', 'danger');
-    setList([]);
-  };
-  //{...某物件}  意思是把整包的值抓近來
   return (
-    <>
-      <section className='section-center'>
-        <form className='grocery-form' onSubmit={handleSubmit}>
-          {alert.show && <Alert_28 {...alert} removeAlert={showAlert} />}
-          <h3>Grocery Bub - 909410028</h3>
-          <div className='form-control'>
-            <input
-              type='text'
-              className='grocery'
-              placeholder='e.g. eggs'
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-            />
-            <button type='submit' className='submit-btn'>
-              submit
-            </button>
+    <section className='blogs'>
+      <div class='section-title'>
+        <h2>CSS Grid using breakpoints</h2>
+      </div>
+      <div class='filter-container'>
+        <button type='button' class='filter-btn' data-id='all'>
+          all
+        </button>
+        <button type='button' class='filter-btn' data-id='lifestyle'>
+          lifestyle
+        </button>
+        <button type='button' class='filter-btn' data-id='travel'>
+          travel
+        </button>
+      </div>
+      <div class='blogs-center'></div>
+      <div className='blogs-center'>
+        <article className='blog'>
+          <img
+            src='/images/photo-8.jpg'
+            alt='Coffee photo'
+            className='img blog-img'
+          />
+          <div className='blog-content'>
+            <span>travel</span>
+            <h3>Quod expedita quam facere</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <div className='item-control'>
+              <a href='#'>read more</a>
+              <div className='btn-container'>
+                <button type='button' className='edit-btn'>
+                  {' '}
+                  edit{' '}
+                </button>
+                <button type='button' className='delete-btn'>
+                  {' '}
+                  delete{' '}
+                </button>
+              </div>
+            </div>
           </div>
-        </form>
-        {list.length > 0 && (
-          <div className='grocery-container'>
-            <List_28 items={list} removeItem={removeItem} />
-            <button className='clear-btn' onClick={clearList}>
-              Clear Items
-            </button>
+        </article>
+        <article className='blog'>
+          <img
+            src='/images/photo-2.jpg'
+            alt='Coffee photo'
+            className='img blog-img'
+          />
+          <div className='blog-content'>
+            <span>travel</span>
+            <h3>travel to paris</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <div className='item-control'>
+              <a href='#'>read more</a>
+              <div className='btn-container'>
+                <button type='button' className='edit-btn'>
+                  {' '}
+                  edit{' '}
+                </button>
+                <button type='button' className='delete-btn'>
+                  {' '}
+                  delete{' '}
+                </button>
+              </div>
+            </div>
           </div>
-        )}
-      </section>
-    </>
+        </article>
+        <article className='blog'>
+          <img
+            src='/images/photo-1.jpg'
+            alt='Coffee photo'
+            className='img blog-img'
+          />
+          <div className='blog-content'>
+            <span>lifestyle</span>
+            <h3>why coffee is awesome</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <div className='item-control'>
+              <a href='#'>read more</a>
+              <div className='btn-container'>
+                <button type='button' className='edit-btn'>
+                  {' '}
+                  edit{' '}
+                </button>
+                <button type='button' className='delete-btn'>
+                  {' '}
+                  delete{' '}
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article className='blog'>
+          <img
+            src='/images/photo-1.jpg'
+            alt='Coffee photo'
+            className='img blog-img'
+          />
+          <div className='blog-content'>
+            <span>lifestyle</span>
+            <h3>why coffee is awesome</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <div className='item-control'>
+              <a href='#'>read more</a>
+              <div className='btn-container'>
+                <button type='button' className='edit-btn'>
+                  {' '}
+                  edit{' '}
+                </button>
+                <button type='button' className='delete-btn'>
+                  {' '}
+                  delete{' '}
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
   );
 };
 
