@@ -6,6 +6,11 @@ import BlogList_28 from './components/BlogList_28';
 const App_28 = () => {
   const [blogs, setBlogs] = useState(items);
   console.log('blogs', blogs);
+
+  const removeItem = (id) => {
+    setBlogs(blogs.filter((blog) => blog.id !== id));
+  };
+
   return (
     <section className='blogs'>
       <div class='section-title'>
@@ -23,7 +28,11 @@ const App_28 = () => {
         </button>
       </div>
       <div className='blogs-center'>
-        <BlogList_28 key={1} blogs={blogs}></BlogList_28>
+        <BlogList_28
+          key={1}
+          blogs={blogs}
+          removeItem={removeItem}
+        ></BlogList_28>
       </div>
     </section>
   );
