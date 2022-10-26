@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App_28.css';
+import items from './blogData_28';
 
 const App_28 = () => {
+  const [blogs, setBlogs] = useState(items);
+  console.log('blogs', blogs);
   return (
     <section className='blogs'>
       <div class='section-title'>
@@ -20,109 +23,32 @@ const App_28 = () => {
       </div>
       <div class='blogs-center'></div>
       <div className='blogs-center'>
-        <article className='blog'>
-          <img
-            src='/images/photo-8.jpg'
-            alt='Coffee photo'
-            className='img blog-img'
-          />
-          <div className='blog-content'>
-            <span>travel</span>
-            <h3>Quod expedita quam facere</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-            <div className='item-control'>
-              <a href='#'>read more</a>
-              <div className='btn-container'>
-                <button type='button' className='edit-btn'>
-                  {' '}
-                  edit{' '}
-                </button>
-                <button type='button' className='delete-btn'>
-                  {' '}
-                  delete{' '}
-                </button>
+        {blogs.map((blog) => {
+          const { id, img, title, desc, category } = blog;
+          return (
+            <article className='blog'>
+              <img src={img} alt='Coffee photo' className='img blog-img' />
+              <div className='blog-content'>
+                <span>{category}</span>
+                <h3>{title}</h3>
+                <p>{desc}</p>
+                <div className='item-control'>
+                  <a href='#'>read more</a>
+                  <div className='btn-container'>
+                    <button type='button' className='edit-btn'>
+                      edit
+                    </button>
+                    <button type='button' className='delete-btn'>
+                      delete
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </article>
-        <article className='blog'>
-          <img
-            src='/images/photo-2.jpg'
-            alt='Coffee photo'
-            className='img blog-img'
-          />
-          <div className='blog-content'>
-            <span>travel</span>
-            <h3>travel to paris</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-            <div className='item-control'>
-              <a href='#'>read more</a>
-              <div className='btn-container'>
-                <button type='button' className='edit-btn'>
-                  {' '}
-                  edit{' '}
-                </button>
-                <button type='button' className='delete-btn'>
-                  {' '}
-                  delete{' '}
-                </button>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article className='blog'>
-          <img
-            src='/images/photo-1.jpg'
-            alt='Coffee photo'
-            className='img blog-img'
-          />
-          <div className='blog-content'>
-            <span>lifestyle</span>
-            <h3>why coffee is awesome</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-            <div className='item-control'>
-              <a href='#'>read more</a>
-              <div className='btn-container'>
-                <button type='button' className='edit-btn'>
-                  {' '}
-                  edit{' '}
-                </button>
-                <button type='button' className='delete-btn'>
-                  {' '}
-                  delete{' '}
-                </button>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article className='blog'>
-          <img
-            src='/images/photo-1.jpg'
-            alt='Coffee photo'
-            className='img blog-img'
-          />
-          <div className='blog-content'>
-            <span>lifestyle</span>
-            <h3>why coffee is awesome</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-            <div className='item-control'>
-              <a href='#'>read more</a>
-              <div className='btn-container'>
-                <button type='button' className='edit-btn'>
-                  {' '}
-                  edit{' '}
-                </button>
-                <button type='button' className='delete-btn'>
-                  {' '}
-                  delete{' '}
-                </button>
-              </div>
-            </div>
-          </div>
-        </article>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
 };
-
 export default App_28;
