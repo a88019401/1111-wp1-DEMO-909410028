@@ -1,11 +1,13 @@
-const Products_28 = () => {
+import React from 'react';
+
+const ProductsPage_28 = () => {
   return (
     <>
       <section className='section'>
-        <h2>products</h2>
+        <h2>Products Page</h2>
       </section>
     </>
   );
 };
 
-export default Products_28;
+export default ProductsPage_28;

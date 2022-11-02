@@ -1,3 +1,4 @@
+import React from 'react';
 const Error_28 = () => {
   return (
     <section className='section'>
