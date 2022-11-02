@@ -1,7 +1,7 @@
-import './index.css';
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
+import './index.css';
 import App_28 from './App_28';
 
 // 👇️ IMPORTANT: use correct ID of your root element
@@ -9,11 +9,12 @@ import App_28 from './App_28';
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
+
 // 👇️ if you use TypeScript, add non-null (!) assertion operator
 // const root = createRoot(rootElement!);
 
 root.render(
   <StrictMode>
-    <App_28 />
+    <App_28 /> 
   </StrictMode>
 );
