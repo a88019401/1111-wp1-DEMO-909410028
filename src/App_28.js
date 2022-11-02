@@ -7,6 +7,7 @@ import ErrorPage_28 from './pages/ErrorPage_28';
 import HomePage_28 from './pages/HomePage_28';
 import SharedProductLayout_28 from './pages/SharedProductLayout_28';
 import SingleProductPage_28 from './pages/SingleProductPage_28';
+import BookListPage_28 from './pages/BookListPage_28';
 function App_28() {
   return (
     <>
@@ -23,7 +24,7 @@ function App_28() {
                 element={<SingleProductPage_28 />}
               ></Route>
             </Route>
-
+            <Route path='booklist' element={<BookListPage_28 />} />
             <Route path='*' element={<ErrorPage_28></ErrorPage_28>} />
           </Route>
         </Routes>
