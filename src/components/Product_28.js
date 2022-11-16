@@ -9,7 +9,7 @@ const Product_28 = ({id,img,name,price}) => {/*{id,img,name,price}是解構 */
                />
                <footer>
                  <h5 className="name">{name}</h5>
-                 <span className="price">{price}</span>
+                 <span className="price">${price}</span>
                </footer>
              </div>
     </>
