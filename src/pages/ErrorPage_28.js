@@ -1,8 +1,11 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+
 const Error_28 = () => {
   return (
     <section className='section'>
-      <h2>Error</h2>
+      <h2>404</h2>
+      <p>page not found</p>
+      <Link to='/'>back home</Link>
     </section>
   );
 };
