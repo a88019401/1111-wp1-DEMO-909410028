@@ -30,7 +30,7 @@ const P5Page_28 = () => {
   };
   const fetchAllProducts = () => {
     //showAlert(true, 'empty list', 'danger');
-    setProducts([midterm_data_28]);
+    setProducts(midterm_data_28);
   };
   return (
 
