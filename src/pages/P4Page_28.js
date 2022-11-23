@@ -13,6 +13,7 @@ const P4Page_28 = () => {
       setProducts(newProducts);
     }
   };
+
   return (
     <>
     <section className="main-section">
