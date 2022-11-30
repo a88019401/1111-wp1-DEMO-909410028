@@ -1,13 +1,132 @@
-import React from 'react';
-import T61_28 from './tutorial/6-useReducer/T6_28-useReducer';
+import React, { useState, useEffect, useContext } from 'react';
+import './App_28.css';
+import items from './blogData_28';
+//import BlogList_28 from './components/BlogList_28';
+import Alert_28 from './components/Alert_28';
 
+//import Blog_28 from './components/Blog_28';
+
+ const ItemContext = React.createContext();
 const App_28 = () => {
+  const [blogs, setBlogs] = useState(items);
+  console.log('blogs', blogs);
+
+  const removeItem = (id) => {
+    showAlert(true, 'blog removed', 'danger');
+    setBlogs(blogs.filter((blog) => blog.id !== id));
+  };
+
+  const allRemoveItem = (id) => {
+    showAlert(true, 'byebye all blogs', 'danger');
+    setBlogs([]);
+  };
+  const [alert, setAlert] = useState({
+    show: false,
+    msg: '',
+    type: '',
+  });
+
+  const showAlert = (show = false, msg = '', type = '') => {
+    setAlert({ show, msg, type });
+  };
+  const filterItems = (category) => {
+    if (category === 'all') {
+      setBlogs(items);
+    } else {
+      const newBlogs = items.filter((blog) => blog.category === category);
+      setBlogs(newBlogs);
+    }
+  };
+  const BlogList_28 = () => {
+    const mainData = useContext(ItemContext);
+    console.log('mainData',mainData);
+    return (
+      <div className='blogs-center'>
+        {mainData.blogs.map((blog) => {
+          const { id, img, title, desc, category } = blog;
+          return (
+            <Blog_28
+              id={id}
+              img={img}
+              title={title}
+              desc={desc}
+              category={category}
+              //removeItem={removeItem}
+            ></Blog_28>
+          );
+        })}
+      </div>
+    );
+  };
+
+  const Blog_28 = ({ id, img, title, desc, category }) => {
+    return (<>
+      <article className='blog'>
+        <img src={img} alt='Coffee photo' className='img blog-img' />
+        <div className='blog-content'>
+          <span>{category}</span>
+          <h3>{title}</h3>
+          <p>{desc}</p>
+          <div className='item-control'>
+            <a href='#'>read more</a>
+            <div className='btn-container'>
+              <button type='button' className='edit-btn'>
+                edit
+              </button>
+              <button
+                type='button'
+                className='delete-btn'
+                onClick={() => removeItem(id)}
+              >
+                delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </>);
+  };
   return (
-    <div className='container'>
-      <h2>Tutorial T6_909410028</h2>
-      <T61_28 />
-    </div>
+    <ItemContext.Provider value={{blogs,removeItem}}>
+      <section className='blogs'>
+        {alert.show && <Alert_28 {...alert} removeAlert={showAlert} />}
+        <div className='section-title'>
+          <h2>CSS Grid using breakpoints</h2>
+        </div>
+        <div className='filter-container'>
+          <button
+            type='button'
+            className='filter-btn'
+            onClick={() => filterItems('all')}
+          >
+            all
+          </button>
+          <button
+            type='button'
+            className='filter-btn'
+            onClick={() => filterItems('lifestyle')}
+          >
+            lifestyle
+          </button>
+          <button
+            type='button'
+            className='filter-btn'
+            onClick={() => filterItems('travel')}
+          >
+            travel
+          </button>
+        </div>
+        <div className='blogs-center'>
+          <BlogList_28 />
+          
+        </div>
+        <button className='clear-btn' onClick={allRemoveItem}>
+          clear all blogs
+        </button>
+      </section>
+    </ItemContext.Provider>
   );
 };
 
 export default App_28;
+
