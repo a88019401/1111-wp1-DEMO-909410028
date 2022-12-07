@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react';
 
-import {useBlogsContext} from '../App_28';
+import {useBlogsContext_28} from '../BlogContext_28';
 const Blog_28 = ({ id, img, title, desc, category }) => {
   
-  //const mainData = useContext(BlogContext);
-  const {removeItem} = useBlogsContext();
+  const {removeItem} = useBlogsContext_28();
   return (
 
   <>
