@@ -10,6 +10,7 @@ const BlogList_28 = () => {
         const { id, img, title, desc, category } = blog;
         return (
           <Blog_28
+          key={id}
             id={id}
             img={img}
             title={title}
