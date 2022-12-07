@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './App_28.css';
 import items from './blogData_28';
-//import BlogList_28 from './components/BlogList_28';
+import BlogList_28 from './components/BlogList_28';
 import Alert_28 from './components/Alert_28';
+
 
 //import Blog_28 from './components/Blog_28';
 
 const BlogContext = React.createContext();
-const App1_28 = () => {
+const App_28 = () => {
   const [blogs, setBlogs] = useState(items);
   console.log('blogs', blogs);
 
@@ -80,31 +81,6 @@ const App1_28 = () => {
   );
 };
 
-const BlogList_28 = () => {
-  
-  const {blogs} = useContext(BlogContext);
-  //const mainData = useContext(BlogContext);
-  //console.log('mainData',mainData);
-  return (
-    <div className='blogs-center'>
-      {//mainData.blogs.map((blog) => {
-        blogs.map((blog) => {
-        const { id, img, title, desc, category } = blog;
-        return (
-          <Blog_28
-          key={id}
-            id={id}
-            img={img}
-            title={title}
-            desc={desc}
-            category={category}
-            //removeItem={removeItem}
-          ></Blog_28>
-        );
-      })}
-    </div>
-  );
-};
 const Blog_28 = ({ id, img, title, desc, category }) => {
   
   //const mainData = useContext(BlogContext);
@@ -139,5 +115,9 @@ const Blog_28 = ({ id, img, title, desc, category }) => {
     </article>
   </>);
 };
-export default App_28;
+
+const useBlogsContext =() =>{
+  return useContext(BlogContext)
+}
+export  {App_28,useBlogsContext};
 
