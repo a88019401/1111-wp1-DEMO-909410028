@@ -6,7 +6,7 @@ import Alert_28 from './components/Alert_28';
 
 //import Blog_28 from './components/Blog_28';
 
- const ItemContext = React.createContext();
+const BlogContext = React.createContext();
 const App_28 = () => {
   const [blogs, setBlogs] = useState(items);
   console.log('blogs', blogs);
@@ -16,7 +16,7 @@ const App_28 = () => {
     setBlogs(blogs.filter((blog) => blog.id !== id));
   };
 
-  const allRemoveItem = (id) => {
+  const clearBlogs = (id) => {
     showAlert(true, 'byebye all blogs', 'danger');
     setBlogs([]);
   };
@@ -37,57 +37,9 @@ const App_28 = () => {
       setBlogs(newBlogs);
     }
   };
-  const BlogList_28 = () => {
-    const mainData = useContext(ItemContext);
-    console.log('mainData',mainData);
-    return (
-      <div className='blogs-center'>
-        {mainData.blogs.map((blog) => {
-          const { id, img, title, desc, category } = blog;
-          return (
-            <Blog_28
-              id={id}
-              img={img}
-              title={title}
-              desc={desc}
-              category={category}
-              //removeItem={removeItem}
-            ></Blog_28>
-          );
-        })}
-      </div>
-    );
-  };
 
-  const Blog_28 = ({ id, img, title, desc, category }) => {
-    return (<>
-      <article className='blog'>
-        <img src={img} alt='Coffee photo' className='img blog-img' />
-        <div className='blog-content'>
-          <span>{category}</span>
-          <h3>{title}</h3>
-          <p>{desc}</p>
-          <div className='item-control'>
-            <a href='#'>read more</a>
-            <div className='btn-container'>
-              <button type='button' className='edit-btn'>
-                edit
-              </button>
-              <button
-                type='button'
-                className='delete-btn'
-                onClick={() => removeItem(id)}
-              >
-                delete
-              </button>
-            </div>
-          </div>
-        </div>
-      </article>
-    </>);
-  };
   return (
-    <ItemContext.Provider value={{blogs,removeItem}}>
+    <BlogContext.Provider value={{blogs,alert,clearBlogs,filterItems,removeItem}}>
       <section className='blogs'>
         {alert.show && <Alert_28 {...alert} removeAlert={showAlert} />}
         <div className='section-title'>
@@ -117,16 +69,75 @@ const App_28 = () => {
           </button>
         </div>
         <div className='blogs-center'>
-          <BlogList_28 />
+          <BlogList_28 key={1}/>
           
         </div>
-        <button className='clear-btn' onClick={allRemoveItem}>
+        <button className='clear-btn' onClick={clearBlogs}>
           clear all blogs
         </button>
       </section>
-    </ItemContext.Provider>
+    </BlogContext.Provider>
   );
 };
 
+const BlogList_28 = () => {
+  
+  const {blogs} = useContext(BlogContext);
+  //const mainData = useContext(BlogContext);
+  //console.log('mainData',mainData);
+  return (
+    <div className='blogs-center'>
+      {//mainData.blogs.map((blog) => {
+        blogs.map((blog) => {
+        const { id, img, title, desc, category } = blog;
+        return (
+          <Blog_28
+          key={id}
+            id={id}
+            img={img}
+            title={title}
+            desc={desc}
+            category={category}
+            //removeItem={removeItem}
+          ></Blog_28>
+        );
+      })}
+    </div>
+  );
+};
+const Blog_28 = ({ id, img, title, desc, category }) => {
+  
+  //const mainData = useContext(BlogContext);
+  const {removeItem} = useContext(BlogContext);
+  return (
+
+  <>
+    <article  className='blog'>
+      <img src={img} alt='Coffee photo' className='img blog-img' />
+      <div className='blog-content'>
+        <span>{category}</span>
+        <h3>{title}</h3>
+        <p>{desc}</p>
+        <div className='item-control'>
+          <a href='#'>read more</a>
+          <div className='btn-container'>
+            <button type='button' className='edit-btn'>
+              edit
+            </button>
+            <button
+              type='button'
+              className='delete-btn'
+              //onClick={() => mainData.removeItem(id)}
+              onClick={() => removeItem(id)}
+
+            >
+              delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </>);
+};
 export default App_28;
 
