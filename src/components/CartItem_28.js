@@ -4,7 +4,7 @@ import {useGlobalContext_28} from '../Context_28';
 
 const CartItem = ({ id, img, title, price, amount }) => {
   
-  const {increase } = useGlobalContext_28();
+  const {increase,decrease } = useGlobalContext_28();
   return (
     <article className='cart-item'>
       <img src={img} alt={title} />
@@ -24,9 +24,9 @@ const CartItem = ({ id, img, title, price, amount }) => {
           </svg>
         </button>
         {/* amount */}
-        <p className='amount'>{amount}</p>
+        <p className='amount' >{amount}</p>
         {/* decrease amount */}
-        <button className='amount-btn'>
+        <button className='amount-btn'onClick={()=> decrease(id)}>
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'>
             <path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' />
           </svg>

@@ -21,11 +21,20 @@ const AppProvider_28 = ({children}) => {
   const clearCart = () =>{
     dispatch({type: 'CLEAR_CART'})
   }
+
+  const RemoveCart = (id) => {
+    dispatch({type: 'REMOVE_CART'})
+  };
+
   const increase =(id)=>{
     dispatch({type:'INCREASE', payload:id})
   }
+
+  const decrease =(id)=>{
+    dispatch({type:'DECREASE', payload:id})
+  }
   return <AppContext_28.Provider value ={{...state,
-  clearCart, increase}}>
+  clearCart, increase,decrease}}>
      {children}
   </AppContext_28.Provider>
 };
