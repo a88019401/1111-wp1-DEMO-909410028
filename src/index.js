@@ -1,16 +1,14 @@
-import React, { Component }  from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
 import App_28 from './App_28';
-
-import {MenuContextProvider_28,useMenusContext_28} from './ContextApp_28';
+import {AppProvider_28} from './Context_28';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MenuContextProvider_28>
-    <App_28 />
-    </MenuContextProvider_28>
-
+    <AppProvider_28> 
+      <App_28 />
+    </AppProvider_28>
   </React.StrictMode>
 );
