@@ -19,6 +19,7 @@ const AppProvider_28 = ({children}) => {
     dispatch({type: 'GET_TOTALS'});
   },[state.cart])
 
+
   const clearCart = () =>{
     dispatch({type: 'CLEAR_CART'})
   }
@@ -30,6 +31,7 @@ const AppProvider_28 = ({children}) => {
   const increase =(id)=>{
     dispatch({type:'INCREASE', payload:id})
   }
+  
   const fetchData = async () =>{
 
     dispatch({type: 'LOADING'});
@@ -44,11 +46,15 @@ const AppProvider_28 = ({children}) => {
   const decrease =(id)=>{
     dispatch({type:'DECREASE', payload:id})
   }
+  const remove = (id) =>{
+    dispatch({type:'REMOVE',payload: id})
+  }
   return <AppContext_28.Provider value ={{...state,
-  clearCart, increase,decrease}}>
+  clearCart, increase,decrease,remove}}>
      {children}
   </AppContext_28.Provider>
 };
+
 
 
 

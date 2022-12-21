@@ -45,6 +45,14 @@ return{...state, total: total, amount:amount}
     if(action.type ==='DISPLAY_ITEMS'){
         return{...state, cart: action.payload, loading:false}
     }
+
+    if(action.type ==='REMOVE'){
+        const filteredCart = 
+        state.cart.filter((item)=>
+        item.id !== action.payload);
+        return{...state, 
+            cart: filteredCart, loading:false}
+    }
 }
 
 export default Reducer_28;
