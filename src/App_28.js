@@ -1,27 +1,56 @@
-import React from 'react';
-
-import {useGlobalContext_28} from './Context_28';
-// components
-import Navbar_28 from './components/Navbar_28';
-import CartContainer_28 from './components/CartContainer_28';
-
-// items
+import React, { useState, useEffect, useContext } from 'react';
+import './App_28.css';
+import items from './blogData_28';
+import BlogList_28 from './components/BlogList_28';
+import Alert_28 from './components/Alert_28';
+import {useBlogsContext_28} from './BlogContext_28';
+import Blog_28 from './components/Blog_28';
 
 const App_28 = () => {
-  const {loading, cart} = useGlobalContext_28();
-   if (loading) {
-     return (
-       <div className='loading'>
-         <h1>Loading...</h1>
-       </div>
-     );
-   }
+  const{blogs,alert,clearBlogs,filterItems,removeItem,showAlert} 
+  =useBlogsContext_28();
   return (
-    <main>
-      <Navbar_28 />
-      <CartContainer_28 />
-    </main>
+    <>
+      <section className='blogs'>
+        {alert.show && <Alert_28 {...alert} removeAlert={showAlert} />}
+        <div className='section-title'>
+          <h2>CSS Grid using breakpoints</h2>
+        </div>
+        <div className='filter-container'>
+          <button
+            type='button'
+            className='filter-btn'
+            onClick={() => filterItems('all')}
+          >
+            all
+          </button>
+          <button
+            type='button'
+            className='filter-btn'
+            onClick={() => filterItems('lifestyle')}
+          >
+            lifestyle
+          </button>
+          <button
+            type='button'
+            className='filter-btn'
+            onClick={() => filterItems('travel')}
+          >
+            travel
+          </button>
+        </div>
+        <div className='blogs-center'>
+          <BlogList_28 key={1}/>
+          
+        </div>
+        <button className='clear-btn' onClick={clearBlogs}>
+          clear all blogs
+        </button>
+      </section>
+    </>
   );
 };
 
+
 export default App_28;
+
