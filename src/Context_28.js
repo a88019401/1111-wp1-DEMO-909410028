@@ -31,7 +31,9 @@ const AppProvider_28 = ({children}) => {
   const increase =(id)=>{
     dispatch({type:'INCREASE', payload:id})
   }
-  
+  const decrease =(id)=>{
+    dispatch({type:'DECREASE', payload:id})
+  }
   const fetchData = async () =>{
 
     dispatch({type: 'LOADING'});
@@ -43,9 +45,7 @@ const AppProvider_28 = ({children}) => {
   useEffect(()=>{
     fetchData();
   },{});
-  const decrease =(id)=>{
-    dispatch({type:'DECREASE', payload:id})
-  }
+
   const remove = (id) =>{
     dispatch({type:'REMOVE',payload: id})
   }
