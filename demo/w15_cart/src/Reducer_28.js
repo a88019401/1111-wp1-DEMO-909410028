@@ -39,12 +39,7 @@ if(action.type === 'GET_TOTALS'){
     total = parseFloat(total.toFixed(2))
 return{...state, total: total, amount:amount}
 }
-    if(action.type ==='LOADING'){
-        return{...state, loading:true}
-    }
-    if(action.type ==='DISPLAY_ITEMS'){
-        return{...state, cart: action.payload, loading:false}
-    }
+
 }
 
 export default Reducer_28;
