@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>w15_0977169674.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><a href="https://github.com/a88019401/1111-wp1-DEMO-909410028.git">Github URL</a></p>
+<h3 id="w15-p1-setup-appproviderxx-for-appxx-and-get-state-data">W15-P1: Setup AppProvider_xx for App_xx and get state data</h3>
+<p><img src="file:///d:/淡大資工程式和功課/new_web/1111-wp1-DEMO-909410028/demo/md/w15_cart/w15-p1-1.png" alt=""></p>
+<p><img src="file:///d:/淡大資工程式和功課/new_web/1111-wp1-DEMO-909410028/demo/md/w15_cart/w15-p1-2.png" alt=""></p>
+<h3 id="w15-p2-replace-data-in-cartcontainer-using-global-context">W15-P2: replace data in CartContainer using global context</h3>
+<p><img src="file:///d:/淡大資工程式和功課/new_web/1111-wp1-DEMO-909410028/demo/md/w15_cart/w15-p2.png" alt=""></p>
+<h3 id="w15-p3-put-clear-cart-function-in-global-context">W15-P3: put clear cart function in global context</h3>
+<p><img src="file:///d:/淡大資工程式和功課/new_web/1111-wp1-DEMO-909410028/demo/md/w15_cart/w15-p3-1.png" alt="">
+<img src="file:///d:/淡大資工程式和功課/new_web/1111-wp1-DEMO-909410028/demo/md/w15_cart/w15-p3-2.png" alt=""></p>
+<h3 id="w15-p4-provide-increase-and-get-total-function-in-global-context">W15-P4: provide increase and get total function in global context</h3>
+<p><img src="file:///d:/淡大資工程式和功課/new_web/1111-wp1-DEMO-909410028/demo/md/w15_cart/w15-p4-1.png" alt=""></p>
+<p><img src="file:///d:/淡大資工程式和功課/new_web/1111-wp1-DEMO-909410028/demo/md/w15_cart/w15-p4-2.png" alt=""></p>
+<h3 id="w15-p6-provide-decrease-function-in-global-context">W15-P6: provide decrease function in global context</h3>
+<p><img src="file:///d:/淡大資工程式和功課/new_web/1111-wp1-DEMO-909410028/demo/md/w15_cart/w15-p6-1.png" alt="">
+<img src="file:///d:/淡大資工程式和功課/new_web/1111-wp1-DEMO-909410028/demo/md/w15_cart/w15-p6-2.png" alt=""></p>
+<h3 id="w15-logs-git-logs">W15-logs: git logs</h3>
+<p><img src="file:///d:/淡大資工程式和功課/new_web/1111-wp1-DEMO-909410028/demo/md/w15_cart/w15-logs.png" alt=""></p>
+<p>5260a99 a88019401       Wed Dec 14 21:59:41 2022 +0800  ### W15-P6: provide decrease function in global context
+6a17020 a88019401       Wed Dec 14 21:21:23 2022 +0800  W15-P4: provide increase and get total function in global context
+9286734 a88019401       Wed Dec 14 21:14:45 2022 +0800  W15-P1~P3 I FORGOT TO COMMIT THEM AT FIRST TO DAY. <img class="emoji" alt="frowning" src="data:image/png;base64,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" /></p>
+
+</body>
+</html>
