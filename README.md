@@ -1,3 +1,5 @@
+#民國111年第一學期的動態網頁設計課程，一些初體驗React前端框架的作業紀錄，好幾代以前了，真懷念
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
